@@ -78,7 +78,8 @@ int main()
                     outFile << vR[j] << " ";
                 }
                 outFile << endl;
-                vector<list<int> > vlPath;
+
+                /*vector<list<int> > vlPath;
                 i = 0;
                 while(i < k)
                 {
@@ -91,12 +92,13 @@ int main()
                 }
                 for (int j = 0; j < vlPath.size(); ++j) {
                     for (list<int>::iterator it = vlPath[j].begin(); it != vlPath[j].end(); ++it) {
-                        std::cout << *it << " ";
+                        outFile << *it << " ";
                     }
-                    cout << endl;
-                    cout << j << ":" << vR[j] << endl << endl;
+                    outFile << endl;
+                    outFile << j << ":" << vR[j] << endl << endl;
                 }
-                cout << endl;
+                outFile << endl;*/
+
             }
             outFile << endl;
         }
