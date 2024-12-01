@@ -6,14 +6,25 @@ int main()
 
 	Graph g = Graph(filename);
 	cout << "Graph loading finish" << endl;
+    srand (time(NULL));
+
+    std::chrono::high_resolution_clock::time_point t1;
+    std::chrono::high_resolution_clock::time_point t2;
+    std::chrono::high_resolution_clock::time_point t3;
+    std::chrono::high_resolution_clock::time_point t4;
+    std::chrono::duration<double> time_span;
+    std::chrono::duration<double> time_span2;
 	int ID1, ID2;
 
+    t1 = std::chrono::high_resolution_clock::now();
 	g.loadTD("./NY.TD");
     g.vvSEInit();
     g.vvSEQuery = g.vvSE;
     g.vmEFinsihedQuery = g.vmEFinsihed;
     g.vvLEQuery = g.vvLE;
     g.vmLFinsihedQuery = g.vmLFinsihed;
+    t2 = std::chrono::high_resolution_clock::now();
+    time_span = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1);
     cout << "read File: " << endl;
     vector<int> kSet;
     kSet.push_back(10);
@@ -41,8 +52,9 @@ int main()
                 getline(inGraph, line);
             }
             inGraph.close();
-            vector<int> skipID1;
-            vector<int> skipID2;
+            double aveEnumTime = 0;
+            double aveGeneTime = 0;
+            int avePairNumber = 0;
             int count = 0;
             for (int kk = 0; kk < ID1List.size(); kk++) {
                 count ++;
@@ -59,6 +71,7 @@ int main()
                 outFile << "k: " << k << endl;
                 int i = 0;
                 vector<int> vR;
+                t3 = std::chrono::high_resolution_clock::now();
                 while(i < k)
                 {
                     int r;
@@ -74,11 +87,15 @@ int main()
                         break;
                     i++;
                 }
+                t4 = std::chrono::high_resolution_clock::now();
+                time_span2 = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1);
+                aveEnumTime += time_span2.count();
+                avePairNumber += 1;
                 for (int j = 0; j < vR.size(); ++j) {
                     outFile << vR[j] << " ";
                 }
                 outFile << endl;
-
+                outFile << "TD Time: " << time_span.count() << " Path Enum Time: "<< time_span2.count()  <<  endl;
                 /*vector<list<int> > vlPath;
                 i = 0;
                 while(i < k)
@@ -101,6 +118,8 @@ int main()
 
             }
             outFile << endl;
+            outFile << endl;
+            outFile << "aveEnumTime: " << aveEnumTime/avePairNumber << " aveGeneTime: " << aveGeneTime/ID2List.size() << endl;
         }
     }
 	return 0;
