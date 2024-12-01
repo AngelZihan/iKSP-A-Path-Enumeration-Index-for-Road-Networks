@@ -19,10 +19,9 @@ $ ./KSP
 ## Change Parameter
 | Parameter            | File | How to Change                                          |
 |----------------------| ------ |--------------------------------------------------------|
-| Print Road           | main.cpp | Open the Comment                                       |
 | K Size               | main.cpp | Change the 'kSet'                                      |
 | Query File           | main.cpp | Change the queryFilename                                   |
 
 ## Running Result
 
-The running result shows the running time and the length of each path.
+The running result shows the path ID, path node, running time and the length of each path.

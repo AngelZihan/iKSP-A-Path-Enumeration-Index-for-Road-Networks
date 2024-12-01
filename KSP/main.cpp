@@ -2,7 +2,7 @@
 
 int main()
 {
-    string filename = "./USA-road-d.NY.gr";
+    string filename = "./simple";
 
 	Graph g = Graph(filename);
 	cout << "Graph loading finish" << endl;
@@ -31,9 +31,9 @@ int main()
     for(int mm = 1; mm < 2; mm++){
         for(int nn = 0; nn < kSet.size(); nn++){
             int k = kSet[nn];
-            ofstream outFile("./NY_result");
+            ofstream outFile("./Simple_result");
             outFile << filename << endl;
-            vector<int> ID1List, ID2List;
+            /*vector<int> ID1List, ID2List;
             string queryFilename = "./USA-NY-Q2.txt";
             ifstream inGraph(queryFilename);
             if(!inGraph)
@@ -51,22 +51,22 @@ int main()
                 ID2List.push_back(pID2);
                 getline(inGraph, line);
             }
-            inGraph.close();
+            inGraph.close();*/
             double aveEnumTime = 0;
             double aveGeneTime = 0;
             int avePairNumber = 0;
             int count = 0;
-            for (int kk = 0; kk < ID1List.size(); kk++) {
-                count ++;
+            for (int kk = 0; kk < 1; kk++) {
+                /*count ++;
                 if(count == 80){
                     g.vvSEQuery = g.vvSE;
                     g.vmEFinsihedQuery = g.vmEFinsihed;
                     g.vvLEQuery = g.vvLE;
                     g.vmLFinsihedQuery = g.vmLFinsihed;
                     count = 0;
-                }
-                ID1 = ID1List[kk];
-                ID2 = ID2List[kk];
+                }*/
+                ID1 = 0;
+                ID2 = 5;
                 outFile << "ID1: " << ID1 << " ID2: " << ID2 << endl;
                 outFile << "k: " << k << endl;
                 int i = 0;
@@ -96,7 +96,7 @@ int main()
                 }
                 outFile << endl;
                 outFile << "TD Time: " << time_span.count() << " Path Enum Time: "<< time_span2.count()  <<  endl;
-                /*vector<list<int> > vlPath;
+                vector<list<int> > vlPath;
                 i = 0;
                 while(i < k)
                 {
@@ -114,12 +114,12 @@ int main()
                     outFile << endl;
                     outFile << j << ":" << vR[j] << endl << endl;
                 }
-                outFile << endl;*/
+                outFile << endl;
 
             }
             outFile << endl;
             outFile << endl;
-            outFile << "aveEnumTime: " << aveEnumTime/avePairNumber << " aveGeneTime: " << aveGeneTime/ID2List.size() << endl;
+//            outFile << "aveEnumTime: " << aveEnumTime/avePairNumber << " aveGeneTime: " << aveGeneTime/ID2List.size() << endl;
         }
     }
 	return 0;
