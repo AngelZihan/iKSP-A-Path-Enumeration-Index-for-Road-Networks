@@ -626,16 +626,4 @@ int Graph::caveKSPLoop(int ID1, int ID2, int k, bool bForward)
 	
 	return vvSEQuery[ID1][(*it).second].vK[k]; 
 }
-	
-int Graph::hopKSPLoop(int ID1, int ID2, int k, bool bForward)
-{
-	if(!bForward)
-	{
-		int IDTmp;
-		IDTmp = ID1;
-		ID1 = ID2;
-		ID2 = IDTmp;
-	}
 
-
-}
