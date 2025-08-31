@@ -177,7 +177,9 @@ void Graph::CHConstruction()
             else
                 break;
         }
-//        cout << "x: " << x << " degree: " << DD[x] << endl;
+        if(bPrint == true) {
+            cout << "x: " << x << " degree: " << DD[x] << endl;
+        }
         vNodeOrder.push_back(x);
         Deg.erase(Deg.begin());
         exist[x] = false;
@@ -1189,6 +1191,9 @@ int Graph::caveKSP(int ID1, int ID2, int k, int d1, int d2, int dTop, bool bLeft
 
     if(bPrint == true){
         cout << "wNum:" << vvSEQuery[ID1][(*it).second].wNum << endl; // super edge numbers
+        for(auto& id:vvSEQuery[ID1][(*it).second].vW)
+            cout << id <<"\t";
+        cout << endl;
         for(auto& id:vvSEQuery[ID1][(*it).second].vDistance)
             cout << id <<"\t";
         cout << endl;

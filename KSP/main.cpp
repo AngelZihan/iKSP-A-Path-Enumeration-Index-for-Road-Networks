@@ -88,7 +88,7 @@ int main()
                     i++;
                 }
                 t4 = std::chrono::high_resolution_clock::now();
-                time_span2 = std::chrono::duration_cast<std::chrono::duration<double> >(t2 - t1);
+                time_span2 = std::chrono::duration_cast<std::chrono::duration<double> >(t4 - t3);
                 aveEnumTime += time_span2.count();
                 avePairNumber += 1;
                 for (int j = 0; j < vR.size(); ++j) {
