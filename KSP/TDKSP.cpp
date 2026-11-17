@@ -201,12 +201,8 @@ void Graph::CHConstruction()
         for(int i=0; i < (int)Neigh.size(); i++)
         {
             int y = Neigh[i].first;
-            // deleteE(x,y);
-            // change[y] = true;
-			Deg.erase(DegComp(y));
-            _DD[y] = DD[y];
-            _DD2[y] = DD2[y];
-            Deg.insert(DegComp(y));
+            deleteE(x,y);
+            change[y] = true;
         }
 
         int	ID1, ID2, dTmp;
@@ -288,6 +284,18 @@ void Graph::CHConstruction()
                 }
             }
         }
+		// BEGIN MODIFICATION: same eager update used by the rewritten KSP.
+        // DegComp reads _DD/_DD2, so erase with the old snapshot first, then copy
+        // the current DD/DD2 values and insert the vertex again.
+        for(int i = 0; i < (int)Neigh.size(); i++)
+        {
+            int y = Neigh[i].first;
+            Deg.erase(DegComp(y));
+            _DD[y] = DD[y];
+            _DD2[y] = DD2[y];
+            Deg.insert(DegComp(y));
+        }
+        // END MODIFICATION
     }
     NodeOrder.assign(nodeNum,-1);
     for(int k=0; k < (int)vNodeOrder.size();k++)
