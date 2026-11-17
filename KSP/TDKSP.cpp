@@ -1651,7 +1651,7 @@ int Graph::caveKSP(int ID1, int ID2, int k, int d1, int d2, int dTop, bool bLeft
 
 
             if(se.sebLoop[k] == true){
-                if(bLeft = true){
+                if(bLeft == true){
                     if(dNext + d2 <= dTop2){
                         se.vK.pop_back();
                         se.vKW.pop_back();
@@ -1943,7 +1943,7 @@ int Graph::caveKSP(int ID1, int ID2, int k, int d1, int d2, int dTop, bool bLeft
             }
 
             if(se.sebLoop[k] == true){
-                if(bLeft = true){
+                if(bLeft == true){
                     if(dNext + d2 <= dTop2){
                         se.vK.pop_back();
                         se.vKW.pop_back();
