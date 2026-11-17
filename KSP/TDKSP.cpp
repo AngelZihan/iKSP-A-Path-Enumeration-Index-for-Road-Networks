@@ -2457,7 +2457,7 @@ int Graph::peakKSP(int ID1, int ID2, int k, bool brnvK)
                     return -1;
                 }
                 auto it2 = vmLEPos[ID2].find(hID);
-                if(it == vmLEPos[ID2].end())
+                if(it2 == vmLEPos[ID2].end())
                 {
 //                    cout << "No Label" << endl;
                     return -1;
@@ -2762,7 +2762,7 @@ int Graph::peakKSP(int ID1, int ID2, int k, bool brnvK)
                     return -1;
                 }
                 auto it2 = vmLEPos[ID2].find(sTop.h);
-                if(it == vmLEPos[ID2].end())
+                if(it2 == vmLEPos[ID2].end())
                 {
 //                    cout << "No Label" << endl;
                     return -1;
@@ -3068,7 +3068,7 @@ int Graph::peakKSP(int ID1, int ID2, int k, bool brnvK)
                 vmLFinsihedQuery[ID1][sTop.h] = true;
             }
             auto it2 = vmLEPos[ID2].find(sTop.h);
-            if(it == vmLEPos[ID2].end())
+            if(it2 == vmLEPos[ID2].end())
             {
                 vmLFinsihedQuery[ID2][sTop.h] = true;
             }
