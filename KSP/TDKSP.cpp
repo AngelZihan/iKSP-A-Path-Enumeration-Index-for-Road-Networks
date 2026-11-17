@@ -201,8 +201,12 @@ void Graph::CHConstruction()
         for(int i=0; i < (int)Neigh.size(); i++)
         {
             int y = Neigh[i].first;
-            deleteE(x,y);
-            change[y] = true;
+            // deleteE(x,y);
+            // change[y] = true;
+			Deg.erase(DegComp(y));
+            _DD[y] = DD[y];
+            _DD2[y] = DD2[y];
+            Deg.insert(DegComp(y));
         }
 
         int	ID1, ID2, dTmp;
